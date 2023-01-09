@@ -65,4 +65,13 @@ const signin = async (req, res) => {
   }
 };
 
-module.exports = { signin, signup };
+const getUsers = async (req, res) => {
+  try {
+    const users = await User.find();
+    res.json(users);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+module.exports = { signin, signup, getUsers };
